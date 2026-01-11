@@ -1,24 +1,10 @@
-/* Thomas Deeks Consulting — minimal, elegant, subtle
-   - responsive
-   - dark mode
-   - reduced motion
-*/
-
+/* Editorial direction: calm, typographic, minimal UI */
 :root{
   --bg: #fbfbfa;
-  --panel: rgba(255,255,255,0.72);
   --text: #141414;
-  --muted: rgba(20,20,20,0.70);
-  --faint: rgba(20,20,20,0.10);
-  --hairline: rgba(20,20,20,0.12);
-
-  --accent: #2b5a86;
-  --accent-2: #2f7d6a;
-
-  --shadow-hero: 0 18px 50px rgba(0,0,0,0.08);
-  --shadow-card: 0 12px 38px rgba(0,0,0,0.06);
-
-  --radius: 18px;
+  --muted: rgba(20,20,20,0.68);
+  --hairline: rgba(20,20,20,0.14);
+  --accent: rgba(43,90,134,0.90);
 
   --max: 980px;
   --pad: 28px;
@@ -26,73 +12,51 @@
   --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --serif: "Source Serif 4", ui-serif, Georgia, "Times New Roman", Times, serif;
 
-  --h1: clamp(2.05rem, 2.8vw, 2.8rem);
-  --h2: clamp(1.15rem, 1.6vw, 1.35rem);
-  --p: 1.02rem;
+  --h1: clamp(2.05rem, 3.0vw, 3.05rem);
+  --h2: clamp(1.10rem, 1.5vw, 1.35rem);
+  --p: 1.03rem;
 
-  --lh: 1.65;
+  --lh: 1.68;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark){
   :root{
-    --bg: #0e0f10;
-    --panel: rgba(18,19,20,0.72);
+    --bg: #0f1011;
     --text: rgba(255,255,255,0.92);
-    --muted: rgba(255,255,255,0.72);
-    --faint: rgba(255,255,255,0.10);
-    --hairline: rgba(255,255,255,0.14);
-
-    --shadow-hero: 0 18px 60px rgba(0,0,0,0.55);
-    --shadow-card: 0 18px 60px rgba(0,0,0,0.45);
+    --muted: rgba(255,255,255,0.70);
+    --hairline: rgba(255,255,255,0.16);
+    --accent: rgba(140,185,235,0.95);
   }
 }
 
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 body{
-  margin:0;
+  margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
   line-height: var(--lh);
   letter-spacing: 0.1px;
-  overflow-x: hidden;
 }
 
 a{ color: inherit; text-decoration: none; }
 
-/* Background */
-.bg{
+.wash{
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-}
-.bg::before{
-  content:"";
-  position:absolute;
-  inset:-20%;
   background:
-    radial-gradient(1200px 700px at 20% 10%, rgba(43,90,134,0.12), transparent 55%),
-    radial-gradient(900px 600px at 80% 0%, rgba(47,125,106,0.10), transparent 55%),
-    radial-gradient(1000px 800px at 50% 90%, rgba(0,0,0,0.07), transparent 55%);
-  filter: blur(8px);
-  opacity: 0.9;
+    radial-gradient(1100px 700px at 18% 10%, rgba(43,90,134,0.10), transparent 55%),
+    radial-gradient(900px 650px at 82% 0%, rgba(47,125,106,0.08), transparent 58%),
+    radial-gradient(1000px 800px at 50% 90%, rgba(0,0,0,0.06), transparent 58%);
+  filter: blur(10px);
+  opacity: 0.85;
 }
+
 @media (prefers-color-scheme: dark){
-  .bg::before{ opacity: 0.75; }
-}
-.bg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image: radial-gradient(circle at 1px 1px, var(--faint) 1px, transparent 0);
-  background-size: 18px 18px;
-  opacity: 0.22;
-  mix-blend-mode: multiply;
-}
-@media (prefers-color-scheme: dark){
-  .bg::after{ opacity: 0.12; mix-blend-mode: screen; }
+  .wash{ opacity: 0.70; }
 }
 
 .wrap{
@@ -100,354 +64,192 @@ a{ color: inherit; text-decoration: none; }
   z-index: 1;
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(28px, 5vw, 64px) var(--pad);
+  padding: clamp(28px, 5vw, 72px) var(--pad);
 }
 
 /* Header */
 .topbar{
-  display:flex;
-  align-items:flex-start;
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: clamp(22px, 2.5vw, 34px);
+  margin-bottom: clamp(18px, 2.5vw, 26px);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  white-space: nowrap;
-}
-.brand:focus-visible{
-  outline: 2px solid rgba(43,90,134,0.45);
-  outline-offset: 6px;
-  border-radius: 14px;
+  display: block;
+  min-width: 260px;
 }
 
-.mark{
-  width: 30px;
-  height: 30px;
-  border-radius: 11px;
-  display: grid;
-  place-items: center;
-  font-weight: 600;
-  font-size: 0.80rem;
-  letter-spacing: 0.6px;
-  color: rgba(255,255,255,0.92);
-  background: linear-gradient(135deg, rgba(43,90,134,0.95), rgba(47,125,106,0.85));
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.brandText{
-  display:flex;
-  flex-direction: column;
-  gap: 3px;
-  line-height: 1.1;
-}
-
-.name{
+.brandName{
+  font-size: 1.18rem;
   font-weight: 600;
   letter-spacing: 0.2px;
-  font-size: 1.12rem; /* larger, stronger */
+  line-height: 1.12;
 }
 
-.tag{
-  color: var(--muted);
+.brandTag{
+  margin-top: 3px;
   font-size: 0.95rem;
+  color: var(--muted);
 }
 
-/* Nav */
+/* Nav: plain, editorial */
 .nav{
-  display:flex;
-  gap: 10px;
-  align-items:center;
-  justify-content:flex-end;
+  display: flex;
+  gap: 18px;
   flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-top: 2px;
 }
 
 .nav a{
-  font-size: 0.95rem;
   color: var(--muted);
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease;
+  font-size: 0.98rem;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
 }
+
 .nav a:hover{
   color: var(--text);
   border-color: var(--hairline);
-  background: rgba(255,255,255,0.35);
-  transform: translateY(-1px);
-}
-@media (prefers-color-scheme: dark){
-  .nav a:hover{ background: rgba(255,255,255,0.06); }
 }
 
-/* Mobile header */
+/* Mobile header rhythm */
 @media (max-width: 860px){
   .topbar{
     flex-direction: column;
     align-items: flex-start;
   }
   .nav{
-    width: 100%;
     justify-content: flex-start;
-    margin-top: 10px;
+    gap: 14px;
   }
 }
 
-/* Hero */
+/* Hero (no card, no shadow) */
 .hero{
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius);
-  background: var(--panel);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-hero);
-  padding: clamp(26px, 3.5vw, 44px);
+  padding-top: clamp(8px, 1.2vw, 12px);
+  padding-bottom: clamp(18px, 2.2vw, 24px);
 }
 
 .kicker{
+  margin: 0 0 10px 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  letter-spacing: 0.24px;
   text-transform: uppercase;
+  letter-spacing: 0.22px;
+  font-size: 0.90rem;
 }
 
 h1{
-  margin: 12px 0 12px 0;
+  margin: 0 0 12px 0;
   font-size: var(--h1);
   line-height: 1.12;
   letter-spacing: -0.6px;
   font-weight: 600;
 }
 
-.sheen{
-  display:inline-block;
-  background: linear-gradient(90deg, rgba(43,90,134,0.0), rgba(43,90,134,0.18), rgba(47,125,106,0.14), rgba(43,90,134,0.0));
-  background-size: 220% 100%;
-  background-position: 0% 50%;
-  border-radius: 10px;
-  padding: 0 0.18em;
-  transition: background-position 600ms ease;
-}
-.hero:hover .sheen{
-  background-position: 100% 50%;
-}
-
 .lead{
   margin: 0;
+  font-size: clamp(1.03rem, 1.1vw, 1.12rem);
   color: var(--muted);
-  font-size: clamp(1.02rem, 1.1vw, 1.10rem);
-  max-width: 72ch;
+  max-width: 74ch;
 }
 
-/* CTA */
-.ctaRow{
-  margin-top: 22px;
-  display:flex;
+.lead em{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--text) 85%, var(--muted));
+}
+
+.cta{
+  margin-top: 18px;
+  display: flex;
   gap: 12px;
+  align-items: baseline;
   flex-wrap: wrap;
-  align-items:center;
 }
 
-.button{
-  display:inline-flex;
-  align-items:center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--hairline);
-  background: rgba(255,255,255,0.48);
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-}
-.button:hover{
-  transform: translateY(-1px);
-  border-color: rgba(43,90,134,0.35);
-  background: rgba(255,255,255,0.70);
-}
-@media (prefers-color-scheme: dark){
-  .button{ background: rgba(255,255,255,0.05); }
-  .button:hover{ background: rgba(255,255,255,0.08); }
+.ctaPrimary{
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  padding-bottom: 2px;
+  transition: border-color 160ms ease, color 160ms ease;
 }
 
-/* Clean email link (replaces the awkward trio of links) */
-.emailLink{
+.ctaPrimary:hover{
+  border-color: var(--accent);
+}
+
+.ctaHint{
   color: var(--muted);
-  padding: 10px 6px;
-  border-radius: 10px;
-  position: relative;
-  transition: color 180ms ease;
-}
-.emailLink:hover{ color: var(--text); }
-
-.emailLink::after{
-  content:"";
-  position:absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 7px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(43,90,134,0.0), rgba(43,90,134,0.55), rgba(47,125,106,0.40), rgba(43,90,134,0.0));
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 260ms ease;
-  opacity: 0.9;
-}
-.emailLink:hover::after{
-  transform: scaleX(1);
+  font-size: 0.98rem;
 }
 
-@media (max-width: 520px){
-  .ctaRow{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .ctaRow .button,
-  .ctaRow .emailLink{
-    width: 100%;
-  }
+/* Section rhythm */
+.rule{
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: clamp(26px, 3.6vw, 42px) 0;
 }
 
-/* Grid */
-.grid{
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(18px, 2.4vw, 28px);
-  margin-top: clamp(20px, 2.8vw, 28px);
-}
-@media (max-width: 920px){
-  .grid{ grid-template-columns: 1fr; }
-}
-
-/* Cards */
 .section{
-  margin-top: clamp(24px, 3.2vw, 44px);
-  padding: clamp(18px, 2.4vw, 22px);
-  border-radius: 16px;
-  border: 1px solid var(--hairline);
-  background: rgba(255,255,255,0.40);
-  box-shadow: var(--shadow-card);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-.section:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 16px 46px rgba(0,0,0,0.08);
-}
-@media (prefers-color-scheme: dark){
-  .section{
-    background: rgba(255,255,255,0.03);
-  }
-  .section:hover{
-    box-shadow: 0 22px 70px rgba(0,0,0,0.55);
-  }
+  padding: 0;
 }
 
 h2{
   margin: 0 0 10px 0;
   font-size: var(--h2);
-  letter-spacing: -0.2px;
   font-weight: 600;
+  letter-spacing: -0.2px;
 }
 
 .section p{
   margin: 0;
-  color: var(--muted);
   font-size: var(--p);
-  max-width: 74ch;
+  color: var(--muted);
+  max-width: 76ch;
 }
 
-/* Add breathing room between paragraphs (fixes “scrunched together”) */
 .section p + p{
   margin-top: 12px;
 }
 
-/* Lists */
+/* One list style only */
 .list{
-  margin: 12px 0 0 0;
-  padding: 0;
-  list-style: none;
-  display:grid;
-  gap: 10px;
+  margin: 14px 0 0 0;
+  padding-left: 1.05rem;
+  color: var(--muted);
+  max-width: 76ch;
 }
+
 .list li{
-  color: var(--muted);
-  padding-left: 18px;
-  position: relative;
-  max-width: 74ch;
-}
-.list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top: 0.72em;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(43,90,134,0.55);
-  box-shadow: 0 0 0 6px rgba(43,90,134,0.06);
+  margin: 10px 0;
 }
 
-/* Mini list (for “What you’ll notice”) */
-.miniList{
-  margin: 12px 0 0 0;
-  padding: 0;
-  list-style: none;
-  display:grid;
-  gap: 10px;
-}
-.miniList li{
-  color: var(--muted);
-  padding-left: 16px;
-  position: relative;
-}
-.miniList li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top: 0.75em;
-  width: 5px;
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(47,125,106,0.55);
-  box-shadow: 0 0 0 6px rgba(47,125,106,0.06);
-}
-
-/* Note box (replaces the “weird line” callout) */
+/* Note: subtle editorial aside, not a UI callout */
 .note{
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--hairline);
-  background: rgba(255,255,255,0.46);
-}
-@media (prefers-color-scheme: dark){
-  .note{
-    background: rgba(255,255,255,0.04);
-  }
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 2px solid var(--hairline);
+  color: var(--muted);
 }
 
-/* Footer (simple, no extra links) */
+/* Footer: minimal */
 .footer{
-  margin: 46px 0 6px 0;
+  margin-top: clamp(38px, 5vw, 64px);
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* Reveal */
-.reveal{
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 520ms ease, transform 520ms ease;
-}
-.reveal.in{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  .nav a, .button, .emailLink, .reveal, .section{
-    transition: none !important;
-    transform: none !important;
-  }
-  .hero:hover .sheen{ background-position: 0% 50%; }
+/* Small mobile tweaks */
+@media (max-width: 520px){
+  .brandName{ font-size: 1.12rem; }
+  .brandTag{ font-size: 0.93rem; }
+  .nav{ gap: 12px; }
 }
