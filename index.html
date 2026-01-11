@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deeks Consulting</title>
-  <meta name="description" content="End-to-end expertise in Workday Time, Absence, and Scheduling — supporting implementation, stabilization, and long-term platform ownership with a strong focus on payroll impact and operational risk." />
+  <title>Thomas Deeks Consulting</title>
+  <meta name="description" content="End-to-end expertise in Workday Time, Absence, and Scheduling — supporting implementation, stabilization, and long-term platform ownership with a focus on payroll impact and operational risk." />
 
-  <!-- Fonts: minimal, tasteful -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
@@ -19,13 +18,13 @@
 
   <div class="wrap">
     <header class="topbar">
-      <div class="brand" aria-label="Thomas Deeks Consulting">
+      <a class="brand" href="#top" aria-label="Thomas Deeks Consulting">
         <span class="mark" aria-hidden="true">TD</span>
         <div class="brandText">
           <div class="name">Thomas Deeks Consulting</div>
           <div class="tag">Workday • Time • Absence • Scheduling</div>
         </div>
-      </div>
+      </a>
 
       <nav class="nav" aria-label="Site">
         <a href="#focus">Focus</a>
@@ -35,7 +34,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero reveal">
         <div class="kicker">Independent consulting</div>
 
@@ -46,17 +45,15 @@
 
         <p class="lead">
           Supporting organizations through implementation, stabilization, and long-term platform ownership —
-          with a strong focus on <em>payroll impact</em>, operational risk, and supportable design.
+          with a focus on <em>payroll impact</em>, operational risk, and supportable design.
         </p>
 
         <div class="ctaRow">
-          <a class="button" href="#contact" aria-label="Contact Thomas Deeks Consulting">
-            Contact <span aria-hidden="true">→</span>
+          <a class="button" href="mailto:thomas@deeksconsulting.ca">
+            Email me <span aria-hidden="true">→</span>
           </a>
 
-          <a class="link" href="#engagements">How I can help</a>
-
-          <a class="link" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>
+          <a class="emailLink" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>
         </div>
       </section>
 
@@ -64,14 +61,14 @@
         <section id="focus" class="section reveal">
           <h2>Areas of focus</h2>
           <p>
-            Senior functional leadership and hands-on delivery across the full Workday lifecycle —
-            designed for complex environments where accuracy and adoption matter.
+            Senior functional leadership and hands-on delivery across the Workday lifecycle — designed for
+            complex environments where accuracy, adoption, and supportability matter.
           </p>
 
           <ul class="list" role="list">
             <li>Time Tracking and Scheduling implementation leadership</li>
             <li>Absence design and re-implementation (accruals, balances, eligibility, governance)</li>
-            <li>Post-go-live stabilization, ticket triage models, and sustainable operating practices</li>
+            <li>Post-go-live stabilization, triage models, and sustainable operating practices</li>
             <li>Payroll impact analysis and risk mitigation related to time, overtime, and statutory holidays</li>
             <li>Decision support for change — ensuring solutions hold up end-to-end</li>
           </ul>
@@ -80,9 +77,14 @@
         <section class="section reveal">
           <h2>What you’ll notice</h2>
           <p>
-            I approach work with a platform-owner mindset — balancing immediate outcomes with long-term supportability.
+            A platform-owner mindset: calm delivery, clear decisions, and solutions that stand up in operations.
           </p>
-          <p class="callout">Clear options. Honest trade-offs. Practical execution.</p>
+
+          <ul class="miniList" role="list">
+            <li>Options and trade-offs, not guesswork</li>
+            <li>Designed for long-term support, not just go-live</li>
+            <li>Documentation and governance that teams can actually run with</li>
+          </ul>
         </section>
       </div>
 
@@ -93,9 +95,10 @@
           (Time Tracking and Scheduling), to hands-on configuration and solutions analysis during stabilization,
           to ongoing system stewardship across Payroll, Absence, Time Tracking, and Scheduling.
         </p>
-        <p class="callout">
-          Payroll experience is focused on end-to-end decision support — assessing downstream pay outcomes
-          when time and absence changes are introduced.
+
+        <p class="note">
+          Payroll involvement is focused on end-to-end decision support — assessing downstream pay outcomes when
+          time or absence changes are introduced.
         </p>
       </section>
 
@@ -114,23 +117,16 @@
       <section id="contact" class="section reveal">
         <h2>Contact</h2>
         <p>
-          If you’d like to discuss an engagement, you can reach me at
-          <a class="link" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>.
+          For inquiries, reach me at <a class="emailLink" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>
         </p>
       </section>
 
       <footer class="footer">
         <div>© <span id="year"></span> Thomas Deeks Consulting</div>
-        <div class="smallLinks">
-          <a href="#focus">Focus</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
       </footer>
     </main>
   </div>
 
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
