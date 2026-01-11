@@ -19,10 +19,12 @@
 
   <div class="wrap">
     <header class="topbar">
-      <div class="brand" aria-label="Deeks Consulting">
-        <span class="mark" aria-hidden="true"></span>
-        <span class="name">Deeks Consulting</span>
-        <span class="tag">Workday • Time • Absence • Scheduling</span>
+      <div class="brand" aria-label="Thomas Deeks Consulting">
+        <span class="mark" aria-hidden="true">TD</span>
+        <div class="brandText">
+          <div class="name">Thomas Deeks Consulting</div>
+          <div class="tag">Workday • Time • Absence • Scheduling</div>
+        </div>
       </div>
 
       <nav class="nav" aria-label="Site">
@@ -38,7 +40,8 @@
         <div class="kicker">Independent consulting</div>
 
         <h1>
-          End-to-end expertise in <span class="sheen">Workday Time, Absence, and Scheduling</span>.
+          End-to-end expertise in
+          <span class="sheen">Workday Time, Absence, and Scheduling</span>.
         </h1>
 
         <p class="lead">
@@ -47,9 +50,8 @@
         </p>
 
         <div class="ctaRow">
-          <a class="button" href="#contact" aria-label="Contact Deeks Consulting">
-            Contact
-            <span aria-hidden="true">→</span>
+          <a class="button" href="#contact" aria-label="Contact Thomas Deeks Consulting">
+            Contact <span aria-hidden="true">→</span>
           </a>
 
           <a class="link" href="#engagements">How I can help</a>
@@ -80,9 +82,7 @@
           <p>
             I approach work with a platform-owner mindset — balancing immediate outcomes with long-term supportability.
           </p>
-          <p class="callout">
-            Clear options. Honest trade-offs. Practical execution.
-          </p>
+          <p class="callout">Clear options. Honest trade-offs. Practical execution.</p>
         </section>
       </div>
 
@@ -120,7 +120,7 @@
       </section>
 
       <footer class="footer">
-        <div>© <span id="year"></span> Deeks Consulting</div>
+        <div>© <span id="year"></span> Thomas Deeks Consulting</div>
         <div class="smallLinks">
           <a href="#focus">Focus</a>
           <a href="#experience">Experience</a>
@@ -130,9 +130,30 @@
     </main>
   </div>
 
-  <script src="script.js"></script>
   <script>
-    // tiny utility, no dependencies
+    // reveal-on-scroll (subtle, respects reduced motion)
+    (function () {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const items = document.querySelectorAll(".reveal");
+      if (!items.length) return;
+
+      if (prefersReduced) {
+        items.forEach(el => el.classList.add("in"));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12 });
+
+      items.forEach(el => io.observe(el));
+    })();
+
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
