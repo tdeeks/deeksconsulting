@@ -130,31 +130,7 @@
     </main>
   </div>
 
-  <script>
-    // reveal-on-scroll (subtle, respects reduced motion)
-    (function () {
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const items = document.querySelectorAll(".reveal");
-      if (!items.length) return;
+<script src="script.js"></script>
 
-      if (prefersReduced) {
-        items.forEach(el => el.classList.add("in"));
-        return;
-      }
-
-      const io = new IntersectionObserver((entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        }
-      }, { threshold: 0.12 });
-
-      items.forEach(el => io.observe(el));
-    })();
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
