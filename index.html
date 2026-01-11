@@ -4,85 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deeks Consulting</title>
+  <meta name="description" content="End-to-end expertise in Workday Time, Absence, and Scheduling — supporting implementation, stabilization, and long-term platform ownership with a strong focus on payroll impact and operational risk." />
 
-  <style>
-    :root {
-      --text-color: #111;
-      --muted-color: #555;
-      --border-color: #e5e5e5;
-      --background-color: #ffffff;
-    }
+  <!-- Fonts: minimal, tasteful -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-
-    .card {
-      border: 1px solid var(--border-color);
-      padding: 2.5rem 3rem;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    h1 {
-      margin: 0 0 0.75rem 0;
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    .subtitle {
-      margin: 0 0 1.5rem 0;
-      font-size: 0.95rem;
-      color: var(--muted-color);
-      line-height: 1.5;
-    }
-
-    .contact {
-      font-size: 0.95rem;
-      margin-top: 1.25rem;
-    }
-
-    a {
-      color: var(--text-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 1px;
-    }
-
-    a:hover {
-      border-bottom-color: var(--text-color);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div class="card">
-    <h1>Thomas Deeks Consulting</h1>
+  <div class="bg" aria-hidden="true"></div>
 
-    <p class="subtitle">
-      Independent consulting services<br />
-      HR Technology, WFM - PATT and Scheduling
-    </p>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand" aria-label="Deeks Consulting">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="name">Deeks Consulting</span>
+        <span class="tag">Workday • Time • Absence • Scheduling</span>
+      </div>
 
-    <div class="contact">
-      <a href="mailto:thomas@deeksconsulting.ca">
-        thomas@deeksconsulting.ca
-      </a>
-    </div>
+      <nav class="nav" aria-label="Site">
+        <a href="#focus">Focus</a>
+        <a href="#experience">Experience</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="kicker">Independent consulting</div>
+
+        <h1>
+          End-to-end expertise in <span class="sheen">Workday Time, Absence, and Scheduling</span>.
+        </h1>
+
+        <p class="lead">
+          Supporting organizations through implementation, stabilization, and long-term platform ownership —
+          with a strong focus on <em>payroll impact</em>, operational risk, and supportable design.
+        </p>
+
+        <div class="ctaRow">
+          <a class="button" href="#contact" aria-label="Contact Deeks Consulting">
+            Contact
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a class="link" href="#engagements">How I can help</a>
+
+          <a class="link" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section id="focus" class="section reveal">
+          <h2>Areas of focus</h2>
+          <p>
+            Senior functional leadership and hands-on delivery across the full Workday lifecycle —
+            designed for complex environments where accuracy and adoption matter.
+          </p>
+
+          <ul class="list" role="list">
+            <li>Time Tracking and Scheduling implementation leadership</li>
+            <li>Absence design and re-implementation (accruals, balances, eligibility, governance)</li>
+            <li>Post-go-live stabilization, ticket triage models, and sustainable operating practices</li>
+            <li>Payroll impact analysis and risk mitigation related to time, overtime, and statutory holidays</li>
+            <li>Decision support for change — ensuring solutions hold up end-to-end</li>
+          </ul>
+        </section>
+
+        <section class="section reveal">
+          <h2>What you’ll notice</h2>
+          <p>
+            I approach work with a platform-owner mindset — balancing immediate outcomes with long-term supportability.
+          </p>
+          <p class="callout">
+            Clear options. Honest trade-offs. Practical execution.
+          </p>
+        </section>
+      </div>
+
+      <section id="experience" class="section reveal">
+        <h2>Experience</h2>
+        <p>
+          Experience spans the full Workday lifecycle — from leading functional teams during implementation
+          (Time Tracking and Scheduling), to hands-on configuration and solutions analysis during stabilization,
+          to ongoing system stewardship across Payroll, Absence, Time Tracking, and Scheduling.
+        </p>
+        <p class="callout">
+          Payroll experience is focused on end-to-end decision support — assessing downstream pay outcomes
+          when time and absence changes are introduced.
+        </p>
+      </section>
+
+      <section id="engagements" class="section reveal">
+        <h2>How organizations typically engage</h2>
+
+        <ul class="list" role="list">
+          <li>Leading or supporting implementation work for Time Tracking, Scheduling, or Absence</li>
+          <li>Stabilization leadership following go-live (process, triage, configuration, stakeholder alignment)</li>
+          <li>Operating model design for functional support teams and continuous improvement</li>
+          <li>Remediation or redesign when prior decisions don’t scale in real operations</li>
+          <li>Advisory support for payroll-related implications of time and absence changes</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <h2>Contact</h2>
+        <p>
+          If you’d like to discuss an engagement, you can reach me at
+          <a class="link" href="mailto:thomas@deeksconsulting.ca">thomas@deeksconsulting.ca</a>.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <div>© <span id="year"></span> Deeks Consulting</div>
+        <div class="smallLinks">
+          <a href="#focus">Focus</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </footer>
+    </main>
   </div>
+
+  <script src="script.js"></script>
+  <script>
+    // tiny utility, no dependencies
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
